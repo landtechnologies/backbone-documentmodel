@@ -321,7 +321,7 @@
     }
 
     function documentClone() {
-        return new this.constructor(this.toJSON());
+        return new this.constructor(this.toJSON(), this._givenOptions);
     }
 
     var DocumentModel = Backbone.Model.extend({
@@ -329,6 +329,7 @@
             options || (options = {});
             _.extend(this, _.pick(options, ['idAttribute', 'parent', 'name', 'pseudoIdAttribute',
                 'getNestedModel', 'getNestedCollection']));
+            this._givenOptions = _.clone(options);
             Backbone.Model.apply(this, arguments);
 
             this.on('all', function () {
@@ -351,6 +352,7 @@
         constructor: function (models, options) {
             options || (options = {});
             _.extend(this, _.pick(options, ['idAttribute', 'parent', 'name']));
+            this._givenOptions = _.clone(options);
             Backbone.Collection.apply(this, arguments);
 
             this.on('all', function () {
