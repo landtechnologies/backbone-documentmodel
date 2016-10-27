@@ -320,17 +320,6 @@
         }
     }
 
-    function documentSave(key, val, options) {
-        // ensure save is executed from the highest document model.
-        var obj = this;
-
-        while (obj.parent || (obj.collection && obj.collection.parent)) {
-            obj = obj.parent || obj.collection.parent;
-        }
-
-        return Backbone.Model.prototype.save.call(obj, key, val, options);
-    }
-
     function documentClone() {
         return new this.constructor(this.toJSON());
     }
@@ -352,7 +341,6 @@
         toJSON: documentToJSON,
         get: documentModelGet,
         set: documentModelSet,
-        save: documentSave,
         clone: documentClone,
         trigger: documentTrigger,
         getNestedModel: documentModelGetNestedModel,
