@@ -6,7 +6,7 @@
   "author": "Michael Haselton <icereval@gmail.com> & Aaron Herres <redaphid@gmail.com>",
   "dependencies": {
     "underscore": ">=1.4.3",
-    "backbone": "github:landtechnologies/backbone#1.1.2-landtech.2"
+    "backbone": "github:landtechnologies/backbone#1.1.2-landtech.3"
   },
   "devDependencies": {
     "phantomjs": "1.8.1-3"
